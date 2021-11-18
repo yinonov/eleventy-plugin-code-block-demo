@@ -13,7 +13,7 @@
     <img alt="License: ISC" src="https://img.shields.io/github/license/yinonov/eleventy-plugin-code-block-demo" />
   </a>
   <a href="https://twitter.com/yinon\_" target="_blank">
-    <img alt="Twitter: yinon\_" src="https://img.shields.io/twitter/follow/yinon\_.svg?style=social" />
+    <img alt="Twitter: yinon_" src="https://img.shields.io/twitter/follow/yinon\_.svg?style=social" />
   </a>
 </p>
 
