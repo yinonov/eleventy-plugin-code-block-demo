@@ -21,7 +21,7 @@ module.exports = (eleventyConfig: { addTransform: (arg0: string, arg1: (content:
     eleventyConfig.addTransform("code-block-demo", (content, outputPath) => {
       
         if (!outputPath.endsWith(".html")) { 
-        return content
+            return content
         }
 
         const { window: { document }} = new JSDOM(content);
