@@ -12,12 +12,26 @@
   <a href="https://github.com/yinonov/eleventy-plugin-code-block-demo/blob/master/LICENSE" target="_blank">
     <img alt="License: ISC" src="https://img.shields.io/github/license/yinonov/eleventy-plugin-code-block-demo" />
   </a>
-  <a href="https://twitter.com/yinon\_" target="_blank">
+  <a href="https://twitter.com/yinon_" target="_blank">
     <img alt="Twitter: yinon_" src="https://img.shields.io/twitter/follow/yinon\_.svg?style=social" />
   </a>
 </p>
 
-> 11ty plugin to demonstrate html code blocks
+> This 11ty plugin helps demonstrate HTML code blocks.
+It post-processes parsed templates and replaces `pre > code.language-html` HTML elements with rich demonstration features while rendering the actual HTML code.
+
+<details>
+  <summary>
+    *Key Features*
+  </summary>
+
+- A live preview of HTML code blocks (e.g. ```html)
+- Hides the original code block within a collapsed expansion panel
+- TODO copy to clipboard
+
+</details>
+
+**code-block-demo* is in its diapers. *Feel free* to feedback, contribute and influence its future.
 
 ### 🏠 [Homepage](https://github.com/yinonov/eleventy-plugin-code-block-demo#readme)
 
@@ -26,20 +40,20 @@
 ## Install
 
 ```sh
-npm install
+npm install eleventy-plugin-code-block-demo
 ```
 
-## Usage
+Add this plugin to your Eleventy config file (usually .eleventy.js):
 
-```sh
-TODO how to use
+```js
+const codeBlockDemo = require('eleventy-plugin-code-block-demo');
+
+module.exports = function(eleventyConfig) {
+  eleventyConfig.addPlugin(codeBlockDemo);
+};
 ```
 
-## Run tests
-
-```sh
-npm run test
-```
+The plugin will automatically render code blocks with the `language-html` class as HTML.
 
 ## Author
 
@@ -59,7 +73,4 @@ Give a ⭐️ if this project helped you!
 ## 📝 License
 
 Copyright © 2021 [Yinon Oved](https://github.com/yinonov).<br />
-This project is [ISC](https://github.com/yinonov/eleventy-plugin-code-block-demo/blob/master/LICENSE) licensed.
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+This project is [MIT](https://github.com/yinonov/eleventy-plugin-code-block-demo/blob/master/LICENSE) licensed.

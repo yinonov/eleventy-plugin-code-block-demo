@@ -14,7 +14,7 @@ const getDemo = (pre: HTMLPreElement) => {
         </div>
     </body>`);
     
-    return dom.window.document.querySelector(".demo");
+    return dom.window.document.querySelector(".code-block-demo");
 };
 
 module.exports = (eleventyConfig: { addTransform: (arg0: string, arg1: (content: any, outputPath: any) => any) => void; }) => {
@@ -26,7 +26,7 @@ module.exports = (eleventyConfig: { addTransform: (arg0: string, arg1: (content:
 
         const { window: { document }} = new JSDOM(content);
 
-        const codeBlocks = document.querySelectorAll("pre code.language-html");
+        const codeBlocks = document.querySelectorAll("pre > code.language-html");
 
         codeBlocks.forEach((codeBlock: { closest?: any; innerHTML?: any; }) => { 
             const pre = codeBlock.closest('pre');
