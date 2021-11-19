@@ -22,7 +22,7 @@ It post-processes parsed templates and replaces `pre > code.language-html` HTML 
 
 <details>
   <summary>
-    *Key Features*
+    Key Features
   </summary>
 
 - A live preview of HTML code blocks (e.g. ```html)
