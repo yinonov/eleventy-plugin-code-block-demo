@@ -1,4 +1,4 @@
-name: Publish Package
+name: Release
   # Trigger the workflow on push,
   # but only for the main branch
 on:
@@ -14,7 +14,6 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '16.x'
-          registry-url: 'https://registry.npmjs.org'
       - run: npm ci
       # - run: npm test
       - name: Release
