@@ -1,7 +1,10 @@
 name: Publish Package
+  # Trigger the workflow on push,
+  # but only for the main branch
 on:
-  release:
-    types: [created]
+  push:
+    branches:
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,7 +15,9 @@ jobs:
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm install
-      - run: npm publish
+      - run: npm ci
+      # - run: npm test
+      - name: Release
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release

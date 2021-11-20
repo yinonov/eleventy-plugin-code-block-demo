@@ -1,15 +1,16 @@
 {
   "name": "eleventy-plugin-code-block-demo",
-  "version": "0.0.2",
+  "version": "0.0.0-development",
   "description": "11ty plugin to demonstrate html code blocks",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yinonov/eleventy-plugin-code-block-demo.git"
+    "url": "https://github.com/yinonov/eleventy-plugin-code-block-demo.git"
   },
   "main": "dist/index.js",
   "scripts": {
     "start": "tsc -w",
-    "build": "tsc -b"
+    "build": "tsc -b",
+    "semantic-release": "semantic-release"
   },
   "keywords": [
     "11ty",
