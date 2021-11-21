@@ -1,4 +1,3 @@
-
 export const CBD_BASE = 'cbd-base';
 export const CBD_DEMO = 'cbd-demo';
 export const CBD_DETAILS = 'cbd-details';
@@ -17,8 +16,7 @@ export const style = `
 	display: flex;
 	place-content: center;
 	padding: 20px;
-	display: flex;
-	gap: 4px;
+    place-content: center space-around;
 }
 
 .${CBD_DETAILS} > summary {
@@ -32,45 +30,44 @@ export const style = `
 .${CBD_CODE_BLOCK} {
 	border-top: 1px solid lightgrey;
 }
-
-.${CBD_CODE_BLOCK} > * {
-	margin: 0;
-}
 </style>
 `;
 
-export const getHtml = (demoStr: string, codeStr: string, i: number) => `
-<div class="${CBD_BASE}">
-    <div class="${CBD_DEMO}">
-        ${demoStr}
-    </div>
-    <details class="${CBD_DETAILS}">
-        <summary>
-            <button class="${CBD_BUTTON_SHOW}" aria-expanded="false" aria-controls="${CBD_CODE_BLOCK}-${i}">
-                show code
-            </button>
-        </summary>
-        <div class="${CBD_CODE_BLOCK}" role="region" id="${CBD_CODE_BLOCK}-${i}">
-            ${codeStr}
+export const getHtml = (demoStr: string, codeStr: string, i: number) => {
+    const codeBlockId = `${CBD_CODE_BLOCK}-${i}`;
+    return `
+    <div class="${CBD_BASE}">
+        <div class="${CBD_DEMO}">
+            ${demoStr}
         </div>
-    </details>
-</div>`;
+        <details class="${CBD_DETAILS}">
+            <summary>
+                <button class="${CBD_BUTTON_SHOW}" aria-expanded="false" aria-controls="${codeBlockId}">
+                    show code
+                </button>
+            </summary>
+            <div class="${CBD_CODE_BLOCK}" role="region" id="${codeBlockId}">
+                ${codeStr}
+            </div>
+        </details>
+    </div>`;
+}
 
-export const generateScript = (baseEl: HTMLDivElement) => {
-    const codeButton: HTMLButtonElement | null = baseEl.querySelector(`.${CBD_BUTTON_SHOW}`);
+export const script = `
+<script>
+    const toggleCodePanel = (event) => {
+        const button = event.target;
+        const details = button.closest('.${CBD_DETAILS}');
+        details.open = !details.open;
+        button.setAttribute('aria-expanded', details.open.toString());
+    };
 
-    const codeBlock: HTMLDivElement | null = baseEl.querySelector(`.${CBD_CODE_BLOCK}`);
+    const initShowCodeButtons = () => {
+        document.querySelectorAll('.${CBD_BUTTON_SHOW}').forEach(button => {
+            button.addEventListener('click', toggleCodePanel);
+        });
+    };
 
-    const details: HTMLDetailsElement | null = baseEl.querySelector(`.${CBD_DETAILS}`);
-
-    //@ts-ignore
-    codeButton.ariaExpanded = false;
-    //@ts-ignore
-    codeButton.ariaControlsElements = [codeBlock];
-
-    if (details) {   
-        codeButton?.addEventListener('click', () =>
-            details.open = !details.open
-        );
-    }
-};
+    window.addEventListener('DOMContentLoaded', initShowCodeButtons);
+</script>
+`;
