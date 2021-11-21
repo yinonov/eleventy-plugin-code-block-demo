@@ -1,6 +1,6 @@
 {
   "name": "eleventy-plugin-code-block-demo",
-  "version": "0.0.0-development",
+  "version": "0.1.3",
   "description": "11ty plugin to demonstrate html code blocks",
   "repository": {
     "type": "git",
