@@ -32,9 +32,7 @@
     "jsdom": "^18.1.0"
   },
   "devDependencies": {
-    "@semantic-release/commit-analyzer": "^9.0.1",
     "@semantic-release/git": "^10.0.1",
-    "@semantic-release/release-notes-generator": "^10.0.2",
     "@types/jsdom": "^16.2.13",
     "@types/node": "^16.11.7",
     "semantic-release": "^18.0.0",
