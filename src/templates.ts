@@ -13,10 +13,7 @@ export const style = `
 }
 
 .${CBD_DEMO} {
-	display: flex;
-	place-content: center;
 	padding: 20px;
-    place-content: center space-around;
 }
 
 .${CBD_DETAILS} > summary {
