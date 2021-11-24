@@ -5,7 +5,7 @@ import { style, getHtml, CBD_BASE, script } from './templates';
 const ELEVENTY_HTML_CODE_BLOCK_SELECTOR = 'pre > code.language-html';
 
 const generateCodeBlockDemo = (pre: HTMLPreElement, index: number) => {
-    const code = pre.querySelector('code')?.innerHTML;
+    const code = pre.querySelector('code')?.textContent;
     const html = decode(code);
     const dom = new JSDOM(`<body>${getHtml(html, pre.outerHTML, index)}</body>`);
 
